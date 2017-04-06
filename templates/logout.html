@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block 'additional_meta' %}
+	<meta http-equiv="refresh" content="1; url={% url 'index'%}">
+{% endblock %}
+
+{% block 'content' %}
+	<img src="{% static 'img/manius-logout.png' %}" style="width: 90%; margin-left: 5%;">
+{% endblock %}

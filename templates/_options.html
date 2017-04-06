@@ -1,0 +1,23 @@
+<div id="modal_form_menu"><!-- Сaмo oкнo --> 
+      <span id="modal_close_menu">X</span> <!-- Кнoпкa зaкрыть --> 
+      <form action="/core/change_options/" method="POST">
+			{% csrf_token %}
+			{% for field in form_support %}
+				<div>
+					{% if field.errors|length > 0 %}
+						<div class="error-list">
+							{% for error in field.errors%}
+								<div class="error-description">{{ error }}</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+					{{field.label}}<br>
+					{{field}}
+			    </div>
+			{% endfor %}
+			<div>
+				<input type="submit" value="Отправить">
+			</div>
+	</form>
+</div>
+<div id="overlay"></div><!-- Пoдлoжкa -->

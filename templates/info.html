@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block 'title' %}Справочная страница{% endblock %}
+{% block 'additional_css' %}<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">{% endblock %}
+{% block 'content' %}
+	<h1>Справочная информация</h1>
+	<div id="widgets" class="rubric">
+		{% include '_info.html' %}
+	</div>
+{% endblock %}

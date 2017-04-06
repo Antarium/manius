@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %}Авторизация{% endblock %}
+
+{% block 'additional_css' %}<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">{% endblock %}
+{% block 'additional_js' %}<script type="text/javascript" src="{% static 'js/login.js' %}"></script>{% endblock %}
+
+{% block 'content'%}
+<div id='totop'>Наверх!</div>
+<div class="form" id="login-form">
+	<img id="login-img" src="{% static 'img/manius.png' %}">
+	<form action="" method="POST">
+		<fieldset>
+			<legend>Вход в личный кабинет</legend>
+			{% csrf_token %}
+			{% for field in form %}
+				<div>
+					{% if field.errors|length > 0 %}
+						<div class="error-list">
+							{% for error in field.errors%}
+								<div class="error-description">{{ error }}</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+					<label for="id_{{field.name}}" class="labelauth">{{field.label}}</label>
+					{{field}}
+			    </div>
+			{% endfor %}
+			<div>
+				<input type="submit" value="Войти">
+				<input type="hidden" name="next" value="{{next}}">
+				<a href="/reg/">Регистрация</a>
+			</div>
+		</fieldset>
+	</form>
+</div>
+<div class="arrow-bot" data-target="#about">
+	<img src="{% static 'img/triangle.png' %}">
+</div>
+<div id="about" class="rubric">
+	<div class="rubric_title">
+		Что такое Маниус?
+	</div>
+	<div class="standart-infoblock">
+		<p class='info-header'> Маниус создавался мной как сервис для отслеживания того, сколько денег у меня есть на данный момент (то есть сколько вместе наличных и денег на банковских картах).</p>
+		<hr>
+		<div class="standart-infoblock">
+		<div class="image left-box">
+			<img src="{% static 'img/manius-mono.png' %}" >
+		</div>
+		Удобнее всего следить за состоянием своего кошелька, когда цифры предстают в 
+		каком-то графическом отображении, именно поэтому в Маниусе больше графической информации, чем текстовой. 
+		<br>
+		<br>
+		Кроме того, Маниус создавался исключительно "для себя", соответственно, виджеты в нем выглядят так, как нравится мне. 
+		Но если тебе, уважаемый пользователь,  придет в голову еще какой-то необходимый Маниусу виджет, ты всегда можешь написать
+		мне в раздел <a href="/tech/idea/">"идеи"</a>, и я постараюсь реализовать твою задумку.
+		<br>
+		<br>
+		А если ты вдруг найдешь 
+		проблему в работе сервиса - прошу, напиши в раздел <a href="/tech/support/">"поддержка".</a>
+		<br>
+		<br>
+		Ну и последнее, в Маниусе нет и не будет рекламы, а еще он полностью бесплатен!
+		Но то ты всегда 
+		можешь отблагодарить меня любой суммой денег, перейдя <a href="/pay/">по этой ссылке</a>. Кстати, если при этом
+		ты будешь авторизован, Маниус сам отнимет от счета сумму, которую ты мне переведешь ;)
+		</div>
+	</div>
+</div>
+<div class="arrow-bot" data-target="#widgets">
+	<img src="{% static 'img/triangle.png' %}">
+</div>
+<div id="widgets" class="rubric">
+	{% include '_info.html' %}
+</div>
+
+{% endblock %}

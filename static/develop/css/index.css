@@ -1,0 +1,165 @@
+@font-face {
+    font-family: Arciform; /* Гарнитура шрифта */
+    src: url(fonts/arciform.otf); /* Путь к файлу со шрифтом */
+   }
+body, html {
+	font-family: Arial;
+	background: #F8F8F8;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+a {
+	font-size: 15px;
+	color: #202020;
+	text-decoration: None;
+}
+body div{
+	box-sizing: border-box;
+	moz-box-sizing: border-box;	
+}
+
+#header{
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #FFFFFF;
+	height: 80px;
+}
+
+.part-header{
+	position: relative;
+	float: right;
+	width: 50%;
+	height: 100%;
+	line-height: 80px;
+	text-align: right;
+	padding-right: 1%;
+	font-weight: 100;
+}
+
+#caption-header{
+	font-size: 40px;
+	padding: 10px 25px 10px 60px;
+	text-align: left;
+	font-family: Arciform;
+	font-size: 20px;
+	color: #633;
+	line-height: 60px;
+	vertical-align: middle;
+
+}
+#caption-header img{
+	height: 60px;
+	float: left;
+	margin-right: 25px;
+}
+
+.links{
+	float: right;
+	margin-left: 10px;
+	margin-right: 5px;
+	font-size: 15px;
+	color: #202020;
+}
+
+#input-data{
+	
+	background: #F7D652;
+	/*
+	border: 1px solid #DDDDDD;
+	border-style: solid none solid none;
+	*/
+	
+	border: 1px solid #DDDDDD;
+	border-style: solid none solid none;
+	background: #FFFFFF;
+	
+	height: 40px;
+	width: 100%;
+	text-align: center;
+	line-height: 40px;
+	font-size: 15px;
+	color: #202020;
+	font-weight: 100;
+}
+
+#content {
+	position: relative;
+	height: 88%;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+#left-panel{
+	position: absolute;
+	left: 2%;
+	width: 48%;
+	height: 95%;
+}
+
+#right-panel{
+	position: absolute;
+	right: 3%;
+	width: 46%;
+	height: 95%;
+}
+
+.map{
+	border: 1px solid #F5F5F5;
+	margin-top: 1%;
+	margin-bottom: 2%;
+	width: 98%;
+	height: 45%;
+	float: left;
+	background: #FFFFFF;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.2); /* Тень */
+    padding: 10px; /* Поля вокруг текста */
+    border-radius: 2px; /* Радиус скругления */
+    align-content: center;
+}
+
+.map:hover{
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.4); 
+    padding: 10px; 
+    border-radius: 2px; 
+    cursor: pointer;
+}
+
+.table{
+	height: 96%;
+	margin-left: 1%;
+}
+
+.map-gauge-content{
+	height: 100%;
+	float: left;
+}
+
+#map-gauge{
+	margin-left: 15%;
+	width: 45%;
+	float: left;
+}
+
+#map-data{
+	text-align: left;
+	width: 30%;
+}
+
+#dashboard_div{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+#history_table_div{
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+}
+

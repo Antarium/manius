@@ -1,0 +1,67 @@
+<div id="modal_form_menu"><!-- Сaмo oкнo --> 
+     <span id="modal_close_menu">X</span> <!-- Кнoпкa зaкрыть --> 
+     <div class="block_options">
+     	<h3>Настройки аккаунта</h3>
+      	<form action="/change_account/" method="POST">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<td class="label">
+						Ваш e-mail:
+					</td>
+					<td class="edit">
+						<input type="text" name="new_email" size="40" value="{{user.email}}">
+					</td>
+				</tr>
+				<tr>
+					<td class="label"> 
+						Новый пароль:<br>
+						(заполните для смены)
+					</td>
+					<td class="edit">
+						<input type="password" name="new_password" size="40">
+					</td>
+				</tr>
+			</table>
+			<div>
+				<input type="submit" value="Изменить данные">
+			</div>
+		</form>
+	</div>
+	<div class="block_options">
+     	<h3>Виджет "Кошелек"</h3>
+      	<form action="/change_vidget1/" method="POST">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<td class="label">
+						Средняя прибыль:
+					</td>
+					<td class="edit">
+						<input type="text" name="entry_level" size="40" value="{{entry_level}}">
+					</td>
+				</tr>
+				<tr>
+					<td class="label"> 
+						Красная зона:
+					</td>
+					<td class="edit">
+						<input type="text" name="redzone" size="40" value="{{redzone}}">
+					</td>
+				</tr>
+				<tr>
+					<td class="label"> 
+						Зеленая зона:
+					</td>
+					<td class="edit">
+						<input type="text" name="greenzone" size="40" value="{{greenzone}}">
+					</td>
+				</tr>
+			</table>
+			<div>
+				<input type="submit" value="Изменить данные">
+			</div>
+		</form>
+	</div>
+</div>
+<div id="overlay"></div><!-- Пoдлoжкa -->

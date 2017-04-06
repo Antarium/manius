@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Регистрация{% endblock %}
+
+{% block 'additional_css' %}<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">{% endblock %}
+{% block 'additional_js' %}<script src="{% static 'js/login.js' %}"></script> {% endblock %}
+
+{% block 'content'%}
+<div class="form"  id="reg-form">
+	<a href="/"><img id="login-img" src="{% static 'img/manius.png' %}"></a>
+{% if reg_status == 'yes' %}
+	<form action="/reg/save_info/" method="post">
+	{% csrf_token %}
+		<fieldset>
+			<legend>Дополнительная информация</legend>
+		{% csrf_token %}
+					<label class="email-label" >
+						E-mail <span class='div_label'>(необязательно)</span>
+					</label>
+						<input class="email-input" type="email" name="id_email">
+			<table>
+				<tr>
+					<td>
+						* Стартовый капитал <br><span class='div_label'>(Средний заработок за месяц)</span>
+					</td>
+					<td>
+						<input type="text" name="id_entry_level" value="0">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						* Сумма на счете <br><span class='div_label'>(на текущий момент на счете)</span>
+					</td>
+					<td>
+						<input type="text" name="id_balance" value="0">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						* Красная зона<br>
+						<span class='div_label'>(ниже этой суммы на счете нежелательно опускаться)</span>
+					</td>
+					<td>
+						<input type="text" name="id_redzone" value="0">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						* Зеленая зона<br>
+						<span class='div_label'>(начиная с этой суммы на счете начинается зона комфорта)</span>
+					</td>
+					<td>
+						<input type="text" name="id_greenzone" value="0">
+					</td>
+				</tr>
+			</table>
+			<div class="div_label">
+				Поля, отмеченные * обязательны к заполнению, без них часть функций не будут работать. К вводу принимаются только целые числа
+			</div>
+			<div>
+				<input type="submit" value="Сохранить данные">
+			</div>
+		</fieldset>
+	</form>
+{% else %}
+	<form action="/reg/" method="post">
+	{% csrf_token %}
+		<fieldset>
+			<legend>Создание учетной записи</legend>
+		{% csrf_token %}
+			{% for field in form %}
+				<div>
+					{% if field.errors|length > 0 %}
+						<div class="error-list">
+							{% for error in field.errors%}
+								<div class="error-description div_label">{{ error }}</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+					<label for="id_{{field.name}}" class="labelauth">{{field.label}}</label>
+					{{field}}
+			    </div>
+			{% endfor %}
+			<div>
+				<input type="submit" value="Регистрация">
+			</div>
+		</fieldset>
+	</form>
+{% endif %}
+</div>
+{% endblock %}

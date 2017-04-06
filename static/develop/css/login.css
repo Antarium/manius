@@ -1,0 +1,238 @@
+@font-face {
+    font-family: Arciform; /* Гарнитура шрифта */
+    src: url(fonts/arciform.otf); /* Путь к файлу со шрифтом */
+   }
+body{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	text-align:center;
+	font-family: Arciform;
+	font-size: 16pt;
+}
+body div{
+	box-sizing: border-box;
+	moz-box-sizing: border-box;	
+}
+a{
+	color: #633;
+}
+a:hover{
+	color: #fff;
+}
+a:active{
+	color:#000;
+}
+hr{
+	width: 100%;
+	border: 3px solid #633;
+	border-radius: 5px;
+
+}
+#totop{
+	height: 60px;
+	width: 120px;
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	border: 3px solid #633;
+	border-radius: 5px;
+	background-color: #f60;
+	color: #000;
+	font-size: 24px;
+	padding-top: 15px;
+	cursor: pointer;
+	display: none;
+}
+.header{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	background: #FFFFFF;
+	height: 80px;
+}
+.rubric{
+	width: 100%;
+	height: 90%;
+	padding: 30px 10%;
+}
+.rubric_title{
+	font-size: 24pt;
+	background-color: #f60;
+	width: 100%;
+	height: 60px;
+	padding: 12px; 
+	color: #fff; 
+	border: 3px solid #000;
+	border-radius: 5px;
+}
+.standart-infoblock{
+	clear: both;
+	width: 100%;
+	padding: 10 px25px;
+	text-align: justify;
+	font-size: 18pt;
+}
+.info-header{
+	font-size: 20pt;
+	color: #633;
+}
+.addon{
+	width: 100%;
+	padding: 0 15px;
+	font-size: 14pt;
+	color: #633;
+	font-family: Arial;
+}
+.content-box{
+	height: 100%;
+	margin-right: 10px;
+}
+.content-box img{
+	margin: 10px;
+	padding: 10px;
+	border: 3px solid #000;
+	border-radius: 5px;
+}
+.left-box{
+	float: left;
+}
+.right-box{
+	float: right;
+}
+.image{
+	width: 25%;
+	height: 100%;
+	padding: 0 25px;
+}
+.image img{
+	width: 100%;
+}
+.form{
+	position: relative;	
+	min-width: 300px;
+	min-height: 650px;
+	margin: auto;
+	height: 90%;
+	padding-top: 5%;
+}
+#login-form{
+	width: 40%;
+	max-width: 450px;
+}
+#reg-form{
+	padding-top: 5%;
+	width: 60%;	
+	max-width: 650px;
+	height: auto;
+}
+#reg-form div:last-child{
+	height: auto;
+}
+#reg-form div:last-child input{
+	margin-bottom: 0;
+}
+.arrow-bot{
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  padding-top: 2.5%;
+  cursor: pointer;
+  clear: both;
+}
+.arrow-bot img{
+	height: 50%;
+}
+#login-img{
+	max-height: 400px;
+	max-width: 100%;
+}
+form {
+	margin: 15px auto;
+	text-align: right;
+}
+form legend{
+	color: #633;
+	font-size: 18pt;
+	text-align: center;
+	background-color: #fff;
+	padding: 7px 10px 3px 10px;
+	border: 3px solid #000;
+	border-radius: 5px;
+}
+form div{
+	width: 100%;
+	margin-top: 10px;
+	clear: both;
+	height: 30px;
+}
+form div:last-child{
+	margin-top: 20px;
+	width: 100%;
+	text-align:center;
+	height: 60px;
+}
+form div:last-child input{
+	width: 100%;
+	font-size: 16pt;
+	height: 35px;
+	margin-bottom: 10px;
+	background-color: #633;
+	color: #fff;
+}
+form div:last-child a{
+	clear: both;
+	font-size: 14pt;
+}
+fieldset {
+	border: 3px solid #000;
+	border-radius: 10px;
+	background-color: #f60;
+}
+label {
+	width: 30%;
+	float: left;
+	margin-top: 7px;
+}
+input {
+	width: 65%;
+	height: 35px;
+	float: right;
+	border: 2px solid #333;
+	border-radius: 10px;
+	border: 3px solid #000;
+	font-family: Arciform;
+	font-size: 14pt;
+	color: #633;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	moz-box-sizing: border-box;
+}
+.email-label{
+	text-align: center;
+	width: 100%;
+	margin-top: 10px;
+}
+.email-input{
+	float: right;
+	width: 100%;
+	margin: 10px 0;
+}
+table{
+	width: 100%;
+	clear: both;
+}
+table .email-tr td:first-child{
+	width: 25%;
+}
+table input{
+	height: 45px;
+	width: 90%;
+}
+.div_label{
+	font-size: 12pt;
+	text-align: center;
+	color: #fff;
+	height: auto;
+}

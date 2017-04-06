@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %}Авторизация{% endblock %}
+
+{% block 'additional_css' %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile/index.css' %}">
+{% endblock %}
+{% block 'additional_js' %}
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="{% static 'js/vidgets/vidgets.js' %}"></script> 
+{% endblock %}
+
+{% block 'content'%}
+
+<div id="header">
+	<div id="caption-header" class="part-header">
+		<img height="40px" src="{% static 'img/manius-text.png' %}"><br>
+		Он знает, сколько денег у тебя в кошельке! 
+	</div>
+</div>
+
+<div id="menu">
+	<div class="links"><a id="account_menu" href="#">Меню</a></div>
+	<div class="links"><a href="/tech/info/" target="blank">Информация</a></div>
+	<div class="links">
+		{% if user.is_authenticated %}
+			<a href="{% url 'logout' %}"> Выход({{user.get_username}})</a>
+		{% endif %}
+	</div>
+</div>
+
+<div id="input-data">
+	<form action="change_balance/" method="POST">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td class="label">
+					<label>внесено:</label>
+				</td>
+				<td class="input_data">
+					<input type="edit" size="9" name="positive" value="0">
+				</td>
+			</tr>
+			<tr>
+				<td class="label">
+					<label>снято:</label>
+				</td>
+				<td class="input_data">
+					<input type="edit" size="9" name="negative" value="0">
+				</td>
+			</tr>
+			<tr>
+				<td class="label">
+					<label>цель:</label>
+				</td>
+				<td class="input_data">
+					<select name="target">
+						{% for target in target_list%}
+							{% if target.id == 0%}
+								<option selected value="{{target.title}}">{{target.title}}</option>
+							{% else %}
+								<option value="{{target.title}}">{{target.title}}</option>
+							{% endif %}
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" name="send" value="Внести данные"></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div class="map">
+	<div id="map-gauge" class="map-gauge-content">
+		<div id="chart_div" style="width: 100%;"></div>
+	</div>
+	<div id="map-data" class="map-gauge-content">
+		<table>
+			<tr>
+				<td>На счете:</td>
+				{%if user_capital.balance %}
+					<td>{{user_capital.balance}}</td>
+				{% else %}
+					<td>0</td>
+				{% endif %}
+			</tr>
+			<tr>
+				<td>Стартовая сумма:</td>
+				{%if user_capital.entry_level %}
+					<td>{{user_capital.entry_level}}</td>
+				{% else %}
+					<td>0</td>
+				{% endif %}
+			</tr>
+			<tr>
+				<td>Красная зона(до):</td>
+				{%if user_capital.redzone %}
+					<td>{{user_capital.redzone}}</td>
+				{% else %}
+					<td>0</td>
+				{% endif %}
+			</tr>
+			<tr>
+				<td>Зеленая зона(от):</td>
+				{%if user_capital.greenzone %}
+					<td>{{user_capital.greenzone}}</td>
+				{% else %}
+					<td>0</td>
+				{% endif %}
+			</tr>
+		</table>
+		{% if user_capital %}
+			<div id="balance" data-balance="{{user_capital.balance}}"></div>
+			<div id="start" data-balance="{{user_capital.entry_level}}"></div>
+			<div id="redzone" data-balance="{{user_capital.redzone}}"></div>
+			<div id="greenzone" data-balance="{{user_capital.greenzone}}"></div>
+		{% else %}
+			<div id="balance" data-balance="0"></div>
+			<div id="start" data-balance="0"></div>
+			<div id="redzone" data-balance="0"></div>
+			<div id="greenzone" data-balance="0"></div>
+		{% endif %}
+	</div>
+</div>
+
+{% endblock %}
